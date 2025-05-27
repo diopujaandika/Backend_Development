@@ -1,0 +1,11 @@
+{
+  "name": "backend_node_js",
+  "version": "1.0.0",
+  "description": "Backend Node Js files by Dio Puja Andika",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dio Puja Andika",
+  "license": "ISC"
+}
