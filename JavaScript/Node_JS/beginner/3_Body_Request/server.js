@@ -20,7 +20,7 @@ const requestListener = (request, response) => {
         request.on('end', () => {
             body = Buffer.concat(body).toString();
             const { name } = JSON.parse(body);
-            response.end(`<h1>Hai, ${body}!</h1>`);
+            response.end(`<h1>Hai, ${name}!</h1>`);
         });
     }
 };
