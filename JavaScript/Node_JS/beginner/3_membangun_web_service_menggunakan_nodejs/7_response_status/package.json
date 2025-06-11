@@ -1,10 +1,10 @@
 {
-  "name": "1_membuat_hapi_plugin",
+  "name": "7_response_status",
   "version": "1.0.0",
-  "main": "notesPlugin.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node notesPlugin.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
