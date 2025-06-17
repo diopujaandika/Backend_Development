@@ -7,7 +7,9 @@
 /**
  * LANKAH BELAJAR
  * 1. Buka Terminal (Linux dan Mac) atau CMD (Windows)
- * 2. Ketikan curl -X GET https://coffee-api.dicoding.dev/coffees -i
+ * 2. Untuk meminta daftar kopi yang tersedia: curl -X GET https://coffee-api.dicoding.dev/coffees -i 
+ * 3. Untuk membeli kopi yang tersedia: curl -X POST -H "Content-Type: application/json" -d "{\"name\": \"Kopi Tubruk\"}" https://coffee-api.dicoding.dev/transactions -i
+ * 4. Untuk membeli kopi yang tidak tersedia: curl -X POST -H "Content-Type: application/json" -d "{\"name\": \"Kopi Luwak\"}" https://coffee-api.dicoding.dev/transactions -i
  */
 
 /**

@@ -12,7 +12,7 @@ const init = async () => {
     // })
     // await server.start()
 
-    //Registrasi satu plugin menggunakan await server.register()
+    //Registrasi banyak plugin menggunakan await server.register()
     await server.register([
         {
             plugin: notesPlugin,

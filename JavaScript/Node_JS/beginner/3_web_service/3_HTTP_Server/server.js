@@ -1,6 +1,6 @@
-console.log('Halo, kita akan belajar membuat server')
+console.log('Halo, kita akan belajar membuat server');
 
-const http = require('http')    //HTTP modules digunakan untuk membangun web server
+const http = require('http');    //HTTP modules digunakan untuk membangun web server
 /**
  * Logika untuk menangani dan menanggapi request dituliskan pada fungsi ini
  * 
