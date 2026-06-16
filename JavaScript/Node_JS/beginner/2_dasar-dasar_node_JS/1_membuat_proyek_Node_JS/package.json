@@ -1,0 +1,12 @@
+{
+  "name": "1_membuat_proyek_node_js",
+  "version": "1.0.0",
+  "description": "Latihan: Membuat Proyek Node.JS",
+  "license": "ISC",
+  "author": "Dio Puja Andika",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

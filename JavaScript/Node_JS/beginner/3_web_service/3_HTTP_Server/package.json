@@ -1,13 +1,14 @@
 {
-  "name": "1_membuat_http_server",
+  "name": "Membuat HTTP Server",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dio Puja Andika",
   "license": "ISC",
-  "description": ""
+  "description": "Membuat HTTP Server"
 }
