@@ -1,67 +1,63 @@
-// const requestListener = (request, response) => {
-//     response.write('<html>');
-//     response.write('<body>');
-//     response.write('<h1>Hello, World!</h1>');
-//     response.write('</body>');
-//     response.write('</html>');
-//     response.end('<html><body><h1>Hello, World!</h1></body></html>');
-// }
-
-const http = require('http');
+import http from 'http';
 
 const requestListener = (request, response) => {
-    //response.setHeader('Content-Type', 'text/html');
     response.setHeader('Content-Type', 'application/json');
-    response.setHeader('Powered-By', 'Node,js');
+    response.setHeader('Power-By', 'Node.js');
 
-    response.statusCode = 404;   //Memberitahu client bahwa request resource yang diminta tidak ada.
-    response.statusMessage = 'User is not found';  //404 Defaultnya adalah 'Not Found'
-
-    const {method, url} = request;
+    const {url, method} = request;
 
     if(url === '/'){
         if(method === 'GET'){
             response.statusCode = 200;
             response.end(JSON.stringify({
-                message: 'Ini adalah homepage',
+                message:  `Ini adalah halaman HOMEPAGE!`,
             }));
         } else {
             response.statusCode = 400;
             response.end(JSON.stringify({
-                message: `Halaman ini tidak dapat diakses dengan ${method} request`,
+                message: `Halaman tidak dapat diakses dengan ${method} request!`,
             }));
         }
-    }else if(url === '/about'){
+    } else if (url === '/about'){
         if(method === 'GET'){
             response.statusCode = 200;
             response.end(JSON.stringify({
-                message: `Halo! Ini adalah halaman about`,
+                message: `Halo! Ini adalah halaman ABOUT!`,
             }));
-        }else if (method === 'POST'){
+        } else if (method === 'POST') {
             let body = [];
 
             request.on('data', (chunk) => {
                 body.push(chunk);
             });
-        }else{
+
+            request.on('end', () => {
+                body = Buffer.concat(body).toString();
+                const {name} = JSON.parse(body);
+                response.statusCode = 200;
+                response.end(JSON.stringify({
+                    message: `Halo, ${name}! Ini adalah halaman ABOUT!`,
+                }));
+            });
+        } else {
             response.statusCode = 400;
             response.end(JSON.stringify({
-                message: `Halaman ini tidak dapat diakses menggunakan ${method} request!`,
+                message: `Halaman tidak dapat diakses menggunakan ${method} request!`
             }));
         }
-    }else{
+    } else {
         response.statusCode = 404;
-        response.end (JSON.stringify({
-            message: `Halaman tidak ditemukan!`,
+        response.end(JSON.stringify({
+            message: `Halaman tidak ditemukan!`
         }));
     }
-};
+}
 
 const server = http.createServer(requestListener);
- 
+
 const port = 5000;
 const host = 'localhost';
- 
+
 server.listen(port, host, () => {
-    console.log(`Server berjalan pada http://${host}:${port}`);
+    console.log(`Server sedang berjalan pada: http://${host}:${port}`);
 });
