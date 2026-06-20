@@ -1,1 +1,12 @@
-console.log('Halo, kita akan belajar membuat server menggunakan Express');
+//1. Install dependencies Express => npm install express
+
+//2. memasang Express dari modul Express
+import express from 'express'
+
+//3. Buat HTTP Server pada Express dengan kode dasar berikut:
+const app = express();      //HTTP Server dibuat melalui fungsi express()
+const port = 3000;
+
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
