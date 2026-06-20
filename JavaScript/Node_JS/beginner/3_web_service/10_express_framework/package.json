@@ -1,0 +1,14 @@
+{
+  "name": "10_express_framework",
+  "version": "1.0.0",
+  "description": "Membangun web server menggunakan Express",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Dio Puja Andika",
+  "license": "ISC"
+}
