@@ -4,7 +4,7 @@ const requestListener = (request, response) => {
     response.setHeader('Content-Type','text/html')
     response.statusCode = 200
 
-    //Membuat logika dalam menganni permintaan dari method yang berbeda.
+    //Membuat logika dalam mengganti permintaan dari method yang berbeda.
     //Kita akan menggunakan parameter request yang merupakan instance dari http.ClientRequest
     const {method} = request //Properti method itu berbentuk String (GET, POST, PUT, DELETE, DLL)
     if(method === 'GET'){
