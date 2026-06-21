@@ -1,8 +1,8 @@
 {
-  "name": "11_express_request_and_routing",
+  "name": "12_express_path_parameter",
   "version": "1.0.0",
-  "description": "Membuat method/verb request dan routing menggunakan Express.",
-  "main": "index.js",
+  "description": "Membuat path parameter menggunakan Express",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
