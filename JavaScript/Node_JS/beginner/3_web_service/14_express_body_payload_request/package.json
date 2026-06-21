@@ -1,0 +1,17 @@
+{
+  "name": "14_express_body_payload_request",
+  "version": "1.0.0",
+  "description": "Membuat body/payload request",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
