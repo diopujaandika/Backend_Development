@@ -32,3 +32,11 @@ export const createNote = (req, res, next) => {
         message: 'Catatan gagal ditambahkan!' 
     });
 };
+
+//Controller untuk menampilkan seluruh catatan
+export const getNotes = (req, res) => {
+    return res.json({
+        status: 'success',
+        data: {notes}
+    });
+};
