@@ -40,3 +40,24 @@ export const getNotes = (req, res) => {
         data: {notes}
     });
 };
+
+//Controller untuk menampilkan isi dari suatu catatan berdasarkan id yang dimiliki
+export const getNoteById = (req, res) => {
+     //Mendapatkan nilai id
+    const {id} = req.params;  
+    
+    //Mendapatkan objek note dengan id menggunakan method array find()
+    const note = notes.find((n) => n.id === id) 
+
+    //Kondisi untuk memastikan objek note tidak bernilai undifined
+    if(note) {
+        return res.json({
+            status: 'success',
+            data: {note}
+        });
+    }
+    return res.status(404).json({
+        status: 'fail',
+        message: 'Catatan tidak ditemukan!'
+    });
+};
