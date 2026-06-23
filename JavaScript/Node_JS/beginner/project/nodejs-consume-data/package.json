@@ -1,0 +1,17 @@
+{
+  "name": "nodejs-consume-data",
+  "version": "1.0.0",
+  "description": "Latihan: mengkonsumsi dan menggabungkan data di Node.JS",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "SET PORT=3000 && node servers.js"
+  },
+  "keywords": [],
+  "author": "Dio Puja Andika",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
