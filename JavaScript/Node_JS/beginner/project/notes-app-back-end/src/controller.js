@@ -1,7 +1,9 @@
 import {nanoid} from 'nanoid';
 import notes from '../src/notes.js';
 
+//Controller membuat catatan
 export const createNote = (req, res, next) => {
+
     //Logika menyimpan catatan dari clien ke dalam array
     //Clien mengirim data catatan berupa (title, tags, dan body)
     const {title = 'untitled', tags, body} = req.body;
@@ -43,6 +45,7 @@ export const getNotes = (req, res) => {
 
 //Controller untuk menampilkan isi dari suatu catatan berdasarkan id yang dimiliki
 export const getNoteById = (req, res) => {
+
      //Mendapatkan nilai id
     const {id} = req.params;  
     
@@ -59,5 +62,34 @@ export const getNoteById = (req, res) => {
     return res.status(404).json({
         status: 'fail',
         message: 'Catatan tidak ditemukan!'
+    });
+};
+
+//Controller mengedit catatan
+export const editNoteById = (req, res) => {
+
+    //Mengedit sesuai dengan id
+    const {id} = req.params;
+
+    //Mendatapkan data notes terbaru yang dikirimkan melalui body request
+    const {title, tags, body} = req.body;
+
+    //Mempebarui nilai properti updatedAt dan mendapatkan nilai terbaru dengan new Date().toISOString()
+    const updatedAt = new Date().toISOString()
+
+    //Mencari note dengan id 
+    const index = notes.findIndex((n) => n.id === id);
+
+    //Kondisi bila index ditemukan dan tidak ditemukan
+    if (index !== -1) {
+        notes[index] = {...notes[index], title, tags, body, updatedAt};
+        return res.json({
+            status: 'success',
+            message: 'Catatan berhasil diperbarui!'
+        });
+    }
+    return res.status(404).json({
+        status: 'fail',
+        message: 'Gagal memperbarui catatan, Id tidak ditemukan!'
     });
 };
