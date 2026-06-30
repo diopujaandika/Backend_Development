@@ -20,7 +20,7 @@ export const createNote = (req, res, next) => {
     return response(res, 201, 'Catatan berhasil ditambahkan', {noteId: id})
 };
 
-export const getNotes = (req, res) => {
+export const getAllNotes = (req, res) => {
     return res.json({
         status: 'success',
         data: { notes }

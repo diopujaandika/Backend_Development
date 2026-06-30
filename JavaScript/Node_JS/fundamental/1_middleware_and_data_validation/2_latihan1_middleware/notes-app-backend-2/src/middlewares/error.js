@@ -6,6 +6,10 @@ const ErrorHandler = (err, req, res, next) => {
         return response(req, err.statusCode, err.message, null);
     }
 
+    if (err.isJoi) {
+        return response(res, 400, err.detail[0].message, null);
+    }
+
     const status = err.statusCode || err.status || 500;
     const message = err.message || 'Internal Server Error';
 
