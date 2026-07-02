@@ -3,11 +3,11 @@ import { ClientError } from '../exceptions/index.js';
 
 const ErrorHandler = (err, req, res, next) => {
     if (err instanceof ClientError) {;
-        return response(req, err.statusCode, err.message, null);
+        return response(res, err.statusCode, err.message, null);
     }
 
     if (err.isJoi) {
-        return response(res, 400, err.detail[0].message, null);
+        return response(res, 400, err.details[0].message, null);
     }
 
     const status = err.statusCode || err.status || 500;

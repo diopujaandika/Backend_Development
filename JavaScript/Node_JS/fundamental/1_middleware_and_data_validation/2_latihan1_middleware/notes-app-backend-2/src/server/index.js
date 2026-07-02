@@ -5,11 +5,11 @@ import ErrorHandler from '../middlewares/error.js';
  
 const app = express();
  
-app.use(ErrorHandler)
 app.use(express.json());
 app.use(cors({
     origin: '*'
 }));
 app.use(routes);
+app.use(ErrorHandler)
  
 export default app;
