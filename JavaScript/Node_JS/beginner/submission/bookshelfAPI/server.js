@@ -6,25 +6,35 @@ const requestListener = (request, response) => {
 
     const {method} = request;
 
-    if(method === 'GET') {
+    if(method === 'GET'){
         response.end(`This is GET page!`);
     }
-     if(method === 'POST') {
-        response.end(`This is POST page!`);
+    if(method === 'POST'){
+        let body = [];
+
+        request.on('data', (chunk) => {
+            body.push(chunk);
+        });
+
+        request.on('end', () => {
+            body = Buffer.concat(body).toString();
+            const{name} = JSON.parse(body);
+            response.end(`Hai, ${name}!`);
+        });
     }
-     if(method === 'PUT') {
+    if(method === 'PUT'){
         response.end(`This is PUT page!`);
     }
-     if(method === 'DELETE') {
+    if(method === 'DELETE'){
         response.end(`This is DELETE page!`);
     }
 }
 
-const server = http.createServer(requestListener)
+const server = http.createServer(requestListener);
 
 const port = 9000;
 const host = 'localhost';
 
 server.listen(port, host, () => {
-    console.log(`Server running at http://${host}:${port}`);
+    console.log(`Server running at http://${host}:${port}!`);
 });
