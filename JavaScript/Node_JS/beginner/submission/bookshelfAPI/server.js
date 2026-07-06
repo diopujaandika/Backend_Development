@@ -1,0 +1,1 @@
+console.log(`Submission Dicoding : Kelas Backend Pemula | Bookshelf API`);

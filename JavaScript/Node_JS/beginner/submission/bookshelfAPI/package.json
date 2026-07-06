@@ -1,0 +1,14 @@
+{
+  "name": "bookshelfapi",
+  "version": "1.0.0",
+  "description": "Submission Dicoding: Kelas Backend Pemula | Bookshelf API With Express ",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Dio Puja Andika",
+  "license": "ISC"
+}
