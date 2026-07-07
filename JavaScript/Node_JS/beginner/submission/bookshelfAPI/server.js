@@ -2,19 +2,23 @@ import http from 'http';
 
 const requestListener = (request, response) => {
     response.setHeader = ('Content-Type', 'text/html');
-    response.statusCode = 200;
+    response.statusCode = 404;
+    response.statusMessage = `User is not found!`
 
     const {url, method} = request;
 
     if(url === '/') {
         if(method === 'GET') {
-            response.end(`Your ${method} find ${url}homepage!`);
+            response.statusCode = 200;
+            response.end(`Your ${method} found on ${url}homepage!`);
         }else {
+            response.statusCode = 404;
             response.end(`Your ${method} is not found something!`);
         }
     } else if(url === '/about') {
         if(method === "GET") {
-            response.end(`Your ${method} find ${url} page!`);
+            response.statusCode = 200;
+            response.end(`Your ${method} found on ${url} page!`);
         }else if(method === "POST") {
             let body = [];
             request.on('data', (chunk) => {
@@ -23,13 +27,18 @@ const requestListener = (request, response) => {
             request.on('end', () => {
                 body = Buffer.concat(body).toString();
                 const{name} = JSON.parse(body);
+                response.statusCode = 200;
                 response.end(`Hello, ${name}! This is ${url} page!`);
             })
+        }else{
+            response.statusCode = 400;
+            response.end(`Your method ${method} is not found at ${url}page!`);
         }
     } else {
-        response.end(`Your ${url} not found!`);
+        response.statusCode = 404;
+        response.end(`Your ${method} and ${url} not found!`);
     }
-}
+};
 
 const server = http.createServer(requestListener);
 
