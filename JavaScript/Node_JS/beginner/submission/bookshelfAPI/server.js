@@ -11,15 +11,21 @@ const requestListener = (request, response) => {
     if(url === '/') {
         if(method === 'GET') {
             response.statusCode = 200;
-            response.end(`Your ${method} found on ${url}homepage!`);
+            response.end(JSON.stringify({
+                message: `Your ${method} found on ${url}homepage!`,
+            }));
         }else {
             response.statusCode = 404;
-            response.end(`Your ${method} is not found something!`);
+            response.end(JSON.stringify({
+                message: `Your ${method} is not found something!`,
+            }));
         }
     } else if(url === '/about') {
         if(method === "GET") {
             response.statusCode = 200;
-            response.end(`Your ${method} found on ${url} page!`);
+            response.end(JSON.stringify({
+                message: `Your ${method} found on ${url} page!`,
+            }));
         }else if(method === "POST") {
             let body = [];
             request.on('data', (chunk) => {
@@ -29,15 +35,21 @@ const requestListener = (request, response) => {
                 body = Buffer.concat(body).toString();
                 const{name} = JSON.parse(body);
                 response.statusCode = 200;
-                response.end(`Hello, ${name}! This is ${url} page!`);
+                response.end(JSON.stringify({
+                    message: `Hello, ${name}! This is ${url} page!`,
+                }));
             })
         }else{
             response.statusCode = 400;
-            response.end(`Your method ${method} is not found at ${url}page!`);
+            response.end(JSON.stringify({
+               message: `Your method ${method} is not found at ${url}page!`,
+            }));
         }
     } else {
         response.statusCode = 404;
-        response.end(`Your ${method} and ${url} not found!`);
+        response.end(JSON.stringify({
+            message: `Your ${method} and ${url} not found!`,
+        }));
     }
 };
 
