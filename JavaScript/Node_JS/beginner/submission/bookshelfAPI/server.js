@@ -1,7 +1,8 @@
 import http from 'http';
 
 const requestListener = (request, response) => {
-    response.setHeader = ('Content-Type', 'text/html');
+    response.setHeader = ('Content-Type', 'application/json');
+    response.setHeader = ('Powered-By', 'Node.js');
     response.statusCode = 404;
     response.statusMessage = `User is not found!`
 
