@@ -1,0 +1,14 @@
+{
+  "name": "nodejs-simple-server",
+  "version": "1.0.0",
+  "description": "Latihan membuat server sederhana 1.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Dio Puja Andika",
+  "license": "ISC"
+}

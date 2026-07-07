@@ -4,7 +4,7 @@ const requestListener = (request, response) => {
     response.setHeader ('Content-Type', 'application/json');
     response.setHeader ('Powered-By', 'Node.js');
     response.statusCode = 404;
-    response.statusMessage = `User is not found!`
+    response.statusMessage = `User Not Found!`;
 
     const {url, method} = request;
 
@@ -12,52 +12,52 @@ const requestListener = (request, response) => {
         if(method === 'GET') {
             response.statusCode = 200;
             response.end(JSON.stringify({
-                message: `Your ${method} found on ${url}homepage!`,
+                message: `Method ${method} ditemukan pada halaman ${url}.`,
             }));
-        }else {
-            response.statusCode = 404;
+        } else { 
+            response.statusCode = 400;
             response.end(JSON.stringify({
-                message: `Your ${method} is not found something!`,
+                message: `Method ${method} tidak ditemukan pada halaman ${url}.`,
             }));
         }
-    } else if(url === '/about') {
-        if(method === "GET") {
+    } else if (url === '/about') {
+        if(method === 'GET') {
             response.statusCode = 200;
             response.end(JSON.stringify({
-                message: `Your ${method} found on ${url} page!`,
+                message: `Method ${method} ditemukan pada halaman ${url}.`,
             }));
-        }else if(method === "POST") {
+        } else if (method === 'POST' ) {
             let body = [];
             request.on('data', (chunk) => {
                 body.push(chunk);
             });
             request.on('end', () => {
                 body = Buffer.concat(body).toString();
-                const{name} = JSON.parse(body);
+                const {name} = JSON.parse(body);
                 response.statusCode = 200;
                 response.end(JSON.stringify({
-                    message: `Hello, ${name}! This is ${url} page!`,
+                    message: `Halo, ${name}! Selamat datang di halaman ${url}!`,
                 }));
-            })
-        }else{
+            });
+        } else {
             response.statusCode = 400;
             response.end(JSON.stringify({
-               message: `Your method ${method} is not found at ${url}page!`,
+                message: `Method ${method} tidak ditemukan pada halaman ${url}.`,
             }));
         }
-    } else {
+    } else { 
         response.statusCode = 404;
         response.end(JSON.stringify({
-            message: `Your ${method} and ${url} not found!`,
+            message: `Method ${method} dan url ${url} tidak ditemukan!`,
         }));
     }
 };
 
 const server = http.createServer(requestListener);
 
-const port = 9000;
+const port = 5000;
 const host = 'localhost';
 
 server.listen(port, host, () => {
-    console.log(`Server running at http://${host}:${port}`);
-});
+    console.log(`Server sedang berjalan pada http://${host}:${port}`);
+})
