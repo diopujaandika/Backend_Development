@@ -10,5 +10,8 @@
   },
   "keywords": [],
   "author": "Dio Puja Andika",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
