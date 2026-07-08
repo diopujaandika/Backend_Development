@@ -1,24 +1,24 @@
 {
-  "name": "bookshelfapi",
+  "name": "submission",
   "version": "1.0.0",
-  "description": "Submission Dicoding: Kelas Backend Pemula | Bookshelf API With Express ",
-  "main": "index.js",
+  "description": "Submission Kelas Backend Pemula: Bookshelf API",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon ./src/server.js",
+    "lint": "eslint ./src"
   },
   "keywords": [],
   "author": "Dio Puja Andika",
   "license": "ISC",
-  "dependencies": {
-    "express": "^5.2.1"
-  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "eslint": "^10.6.0",
     "eslint-config-dicodingacademy": "^0.9.5",
     "globals": "^17.7.0",
     "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   }
 }
