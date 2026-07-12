@@ -3,7 +3,7 @@ import books from './books.js';
 
 export const createBook = (req, res, next) => {
   const {
-    name = 'untitled',
+    name,
     year,
     author,
     summary,
@@ -11,6 +11,21 @@ export const createBook = (req, res, next) => {
     pageCount,
     readPage,
     reading } = req.body;
+
+  if (!name) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'Gagal menambahkan buku. Mohon isi nama buku',
+    });
+  }
+
+  if (readPage > pageCount) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount'
+    });
+  }
+
   const id = nanoid(16);
   const finished = pageCount === readPage;
   const insertedAt = new Date().toISOString();
@@ -31,6 +46,6 @@ export const createBook = (req, res, next) => {
 
   return res.status(500).json({
     status: 'fail',
-    message: 'Catatan gagal ditambahkan'
+    message: 'Buku gagal ditambahkan'
   });
 };
