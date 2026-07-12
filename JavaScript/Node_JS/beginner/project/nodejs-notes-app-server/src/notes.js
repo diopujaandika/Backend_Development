@@ -1,1 +1,2 @@
-console.log('Ini Dio');
+const notes = [];
+export default notes;

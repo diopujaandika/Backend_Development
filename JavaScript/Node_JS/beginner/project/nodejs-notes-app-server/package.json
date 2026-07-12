@@ -12,7 +12,8 @@
   "author": "Dio Puja Andika",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "nanoid": "^5.1.16"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
