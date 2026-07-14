@@ -25,3 +25,10 @@ export const cre1ateNote = (req, res, next) => {
     message: 'Catatan gagal ditambahkan'
   });
 };
+
+export const getNotes = (req, res) => {
+  return res.json({
+    status: 'success',
+    data: { notes }
+  });
+};

@@ -49,3 +49,10 @@ export const createBook = (req, res, next) => {
     message: 'Buku gagal ditambahkan'
   });
 };
+
+export const getBooks = (req, res) => {
+  return res.json({
+    status: 'success',
+    data: { books }
+  });
+};
