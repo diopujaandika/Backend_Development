@@ -51,8 +51,90 @@ export const createBook = (req, res, next) => {
 };
 
 export const getBooks = (req, res) => {
-  return res.json({
+  const result = books.map((book) => ({
+    id: book.id,
+    name: book.name,
+    publisher: book.publisher,
+  }));
+
+  return res.status(200).json({
     status: 'success',
-    data: { books }
+    data: {
+      books: result,
+    },
+  });
+};
+
+export const getBookById = (req, res) => {
+  const { id } = req.params;
+  const book = books.find((n) => n.id ===  id);
+
+  if (book) {
+    return res.json({
+      status: 'success',
+      data: { book }
+    });
+  }
+  return res.status(404).json({
+    status: 'fail',
+    message: 'Buku tidak ditemukan'
+  });
+};
+
+export const editBookById = (req, res) => {
+  const { id } = req.params;
+  const {
+    name,
+    year,
+    author,
+    summary,
+    publisher,
+    pageCount,
+    readPage,
+    reading,
+  } = req.body;
+
+  if (!name) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'Gagal memperbarui buku. Mohon isi nama buku'
+    });
+  }
+  if (readPage > pageCount) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount',
+    });
+  }
+
+  const index = books.findIndex((n) => n.id === id);
+
+  if (index !== -1) {
+    const finished = pageCount === readPage;
+    const updatedAt = new Date().toISOString();
+
+    books[index] = {
+      ...books[index],
+      name,
+      year,
+      author,
+      summary,
+      publisher,
+      pageCount,
+      readPage,
+      finished,
+      reading,
+      updatedAt,
+    };
+
+    return res.status(200).json({
+      status: 'success',
+      message: 'Buku berhasil diperbarui',
+    });
+  }
+
+  return res.status(404).json({
+    status: 'fail',
+    message: 'Gagal memperbarui buku. Id tidak ditemukan',
   });
 };
