@@ -138,3 +138,21 @@ export const editBookById = (req, res) => {
     message: 'Gagal memperbarui buku. Id tidak ditemukan',
   });
 };
+
+export const deleteBookById = (req, res) => {
+  const { id } = req.params;
+  const index = books.findIndex((n) => n.id === id);
+
+  if (index !== -1) {
+    books.splice(index, 1);
+    return res.json({
+      status: 'success',
+      message: 'Buku berhasil dihapus'
+    });
+  }
+
+  return res.status(404).json({
+    status: 'fail',
+    message: 'Buku gagal dihapus. Id tidak ditemukan'
+  });
+};
