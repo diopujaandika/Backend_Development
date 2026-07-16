@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import books from './books.js';
 
-export const createBook = (req, res, next) => {
+export const createBook = (req, res) => {
   const {
     name,
     year,
