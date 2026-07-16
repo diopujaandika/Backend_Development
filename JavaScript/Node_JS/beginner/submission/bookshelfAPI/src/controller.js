@@ -51,7 +51,29 @@ export const createBook = (req, res) => {
 };
 
 export const getBooks = (req, res) => {
-  const result = books.map((book) => ({
+  const { name, reading, finished } = req.query;
+
+  let filteredBooks = books;
+
+  if (name) {
+    filteredBooks = filteredBooks.filter((book) =>
+      book.name.toLowerCase().includes(name.toLowerCase())
+    );
+  }
+
+  if (reading !== undefined) {
+    filteredBooks = filteredBooks.filter((book) =>
+      book.reading === (reading === '1')
+    );
+  }
+
+  if (finished !== undefined) {
+    filteredBooks = filteredBooks.filter((book) =>
+      book.finished === (finished === '1')
+    );
+  }
+
+  const result = filteredBooks.map((book) => ({
     id: book.id,
     name: book.name,
     publisher: book.publisher,
