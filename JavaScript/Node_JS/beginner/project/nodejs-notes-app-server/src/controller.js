@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import notes from './notes.js';
 
-export const createNote = (req, res, next) => {
+export const createNote = (req, res) => {
   const { title = 'untitled', tags, body } = req.body;
   const id = nanoid(16);
   const createdAt = new Date().toISOString();
