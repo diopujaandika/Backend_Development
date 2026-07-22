@@ -1,21 +1,24 @@
 {
   "name": "openjobapi",
   "version": "1.0.0",
-  "description": "",
+  "description": "Submission Dicoding: Open Job API with Express",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js",
+    "lint": "eslint ./src"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dio Puja Andika",
   "license": "ISC",
-  "type": "commonjs",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "eslint": "^10.7.0",
     "eslint-config-dicodingacademy": "^0.9.5",
     "globals": "^17.7.0",
     "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   }
 }

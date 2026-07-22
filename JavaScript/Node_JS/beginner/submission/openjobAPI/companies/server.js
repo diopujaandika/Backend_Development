@@ -1,9 +1,10 @@
-import express from 'express';
-
-const app = express();
-const port = 9002;
-const host = 'localhost';
-
-app.listen(port, () => {
-    console.log(`Server running at http://${host}:${port}`);
-});
+/**COMPANIES
+ * id
+ * name
+ * description
+ * website
+ * location
+ * owner_id
+ * created_at
+ * updated_at
+ */
