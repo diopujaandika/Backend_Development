@@ -1,7 +1,7 @@
 {
   "name": "companies",
   "version": "1.0.0",
-  "description": "Membuat companies server di companiesAPI",
+  "description": "Membuat companies server di companiesAPI project",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -10,8 +10,5 @@
   },
   "keywords": [],
   "author": "Dio Puja Andika",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^5.2.1"
-  }
+  "license": "ISC"
 }
